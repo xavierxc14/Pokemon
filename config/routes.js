@@ -32,18 +32,24 @@ module.exports.routes = {
      *                                                                          *
      ***************************************************************************/
 
-    'get /': 'UsuariosController.home',
-    '/usuario':{
+    '/': {
+        view: 'homepage'
+    },
+    '/usuario': {
         view: 'usuario',
         policy: 'sessionAuth'
     },
     '/login': {
         view: 'login'
     },
-    '/batman':{
+    '/listaUsuarios': 'UsuariosController.home',
+    '/listaPokemons': {
+        view: 'pokemons'
+    },
+    '/batman': {
         view: 'batman',
         policy: 'soyBatman'
-    },
+    }
 
     /***************************************************************************
      *                                                                          *

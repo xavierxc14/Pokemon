@@ -7,6 +7,11 @@
 
 module.exports = {
 
-    attributes: {}
+    attributes: {
+
+        entrenador: {
+            model: 'Usuarios'
+        }
+    }
 };
 

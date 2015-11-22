@@ -1,0 +1,36 @@
+<h1>Bienvenidos</h1>
+
+<h2>Lista de Usuarios</h2>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Usuario</th>
+            <th>Foto</th>
+            <th>Pokemons</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i = 0; i < usuarios.length; i++) { %>
+        <tr>
+            <td><%= usuarios[i].nombre %></td>
+            <td><%= usuarios[i].usuario %></td>
+            <td><img src="images/<%- usuarios[i].url %>"></td>
+            <td><%= usuarios[i].pokemons.length %></td>
+        </tr>
+        <% } %>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -31,6 +31,10 @@ module.exports = {
         url: {
             type: "string",
             unique: true
+        },
+        pokemons: {
+            collection: 'Pokemons',
+            via: 'entrenador'
         }
 
     }
