@@ -26,7 +26,7 @@ module.exports = {
                             sails.log.info('Login correcto');
                             req.session.user = results;
                             req.session.authenticated = true;
-                            return res.redirect('usuario');
+                            return res.redirect('perfil');
                         }
                         else {
                             sails.log.warn('Datos invalidos');

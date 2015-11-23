@@ -9,7 +9,7 @@ module.exports = {
 
     subirFoto: function (req, res) {
         var params = req.allParams();
-        var deleteFd = '/home/xavier/Documentos/Universidad/Octavo/JS/TecWebJav_2015_B/ArchivosSesion/assets/images/';
+        var deleteFd = '/home/xavier/Documentos/Universidad/Octavo/JS/workspace/assets/images/';
         //var deleteFd = '/home/ubuntu/workspace/assets/images/';
         sails.log.info('Perfil: ', params.perfil);
 
@@ -43,7 +43,7 @@ module.exports = {
                 .exec(function (err) {
                     if (err) return res.negotiate(err);
                     req.session.user.url = urlImagen;
-                    return res.redirect('http://localhost:1337/usuario');
+                    return res.redirect('http://localhost:1337/perfil');
                     return res.redirect('https://pokemon-xavierxc14.c9users.io/usuario');
                 });
         });
@@ -97,6 +97,14 @@ module.exports = {
                 });
             });
 
+    },
+    perfil: function (req, res) {
+
+        var user = req.session.user;
+
+        return res.view('perfil', {
+            usuario: user
+        })
     }
 
 };

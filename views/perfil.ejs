@@ -1,0 +1,43 @@
+<h1>Bienvenidos</h1>
+
+<h2>Perfil</h2>
+<div class="row">
+    <div class="col-md-3">Nombre:</div>
+    <div class="col-md-3"><%= usuario.nombre %></div>
+</div>
+<div class="row">
+    <div class="col-md-3">Foto:</div>
+    <div class="col-md-3"><img src="images/<%- usuario.url %>"></div>
+</div>
+<div class="row">
+    <div class="col-md-offset-3">
+        <form action="Usuarios/subirFoto" enctype="multipart/form-data" method="post">
+            <input type="file" name="perfil" class="file">
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+
+Pokemons:
+<a href="/crearPokemon" class="btn btn-primary" role="button">Crear nuevo</a>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Número</th>
+            <th>Foto</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i = 0; i < usuario.pokemons.length; i++) { %>
+        <tr>
+            <td><%= usuario.pokemons[i].nombre %></td>
+            <td><%= usuario.pokemons[i].numero %></td>
+            <td><%= usuario.pokemons[i].tipo %></td>
+            <td><img src="images/<%- usuario.pokemons[i].url %>"></td>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+</div>

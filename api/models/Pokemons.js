@@ -8,7 +8,30 @@
 module.exports = {
 
     attributes: {
-
+        nombre: {
+            type: "string",
+            required: true
+        },
+        numero: {
+            type: "integer"
+            //unique: true
+        },
+        tipo: {
+            type: "string",
+            enum: ['agua', 'fuego', 'bicho', 'planta', 'roca', 'tierra']
+        },
+        avatarUrl: {
+            type: "string",
+            unique: true
+        },
+        avatarFd: {
+            type: "string",
+            unique: true
+        },
+        url: {
+            type: "string",
+            unique: true
+        },
         entrenador: {
             model: 'Usuarios'
         }

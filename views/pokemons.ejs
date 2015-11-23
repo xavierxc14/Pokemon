@@ -1,0 +1,38 @@
+<h1>Bienvenidos</h1>
+
+<h2>Lista de Pokemons</h2>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Número</th>
+            <th>Tipo</th>
+            <th>Foto</th>
+            <th>Maestro</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i = 0; i < pokemons.length; i++) { %>
+        <tr>
+            <td><%= pokemons[i].nombre %></td>
+            <td><%= pokemons[i].usuario %></td>
+            <td><%= usuario.pokemons[i].tipo %></td>
+            <td><img src="images/<%- pokemons[i].url %>"></td>
+            <td><%= pokemons[i].pokemons.length %></td>
+        </tr>
+        <% } %>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

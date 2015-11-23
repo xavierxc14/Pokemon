@@ -43,8 +43,10 @@ module.exports.routes = {
         view: 'login'
     },
     '/listaUsuarios': 'UsuariosController.home',
-    '/listaPokemons': {
-        view: 'pokemons'
+    '/listaPokemons': 'PokemonsController.home',
+    '/perfil': 'UsuariosController.perfil',
+    '/crearPokemon': {
+        view: 'pokemon'
     },
     '/batman': {
         view: 'batman',
