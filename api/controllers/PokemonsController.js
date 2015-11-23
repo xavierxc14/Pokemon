@@ -30,10 +30,10 @@ module.exports = {
             console.log(uploadedFiles[0]);
             var urlImagen = uploadedFiles[0].fd.replace(deleteFd, "");
             // Save the "fd" and the url where the avatar for a user can be accessed
-            Usuarios.update(req.session.me, {
+            Usuarios.update(req.session.pokemon, {
 
                 // Generate a unique URL where the avatar can be downloaded.
-                avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.me),
+                avatarUrl: require('util').format('%s/pokemon/avatar/%s', sails.getBaseUrl(), req.session.pokemon),
 
                 // Grab the first file and use it's `fd` (file descriptor)
                 avatarFd: uploadedFiles[0].fd,
@@ -42,8 +42,8 @@ module.exports = {
             })
                 .exec(function (err) {
                     if (err) return res.negotiate(err);
-                    req.session.user.url = urlImagen;
-                    return res.redirect('http://localhost:1337/usuario');
+                    req.session.pokemon.url = urlImagen;
+                    return res.redirect('http://localhost:1337/perfilPokemon');
                     return res.redirect('https://pokemon-xavierxc14.c9users.io/usuario');
                 });
         });
@@ -74,7 +74,7 @@ module.exports = {
 
                 pokemon = results;
 
-                return res.view('perfilPokemons', {
+                return res.view('perfilPokemon', {
                     pokemons: pokemon
                 });
             });
@@ -92,7 +92,11 @@ module.exports = {
 
         Pokemons.create(values)
             .exec(function (err, created) {
-                console.log(created.nombre);
+                req.session.pokemon = created;
+                console.log(req.session.pokemon);
+                //return res.view('perfilPokemon', {
+                //    pokemon: created
+                //});
                 //TODO: Agregar carga de imagen, preguntar como
             });
         return res.redirect('http://localhost:1337/perfilPokemon');
