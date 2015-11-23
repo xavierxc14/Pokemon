@@ -65,21 +65,23 @@ module.exports = {
 
     },
     crear: function (req, res) {
+        var params = req.allParams();
 
-        var pokemon;
+        var values = {
+            nombre: params.nombre,
+            numero: params.numero,
+            tipo: params.tipo,
+            entrenador: req.session.user
+        };
+        console.log(values);
 
-        Pokemons.find()
-            .exec(function (err, results) {
-                if (err) return res.negotiate();
-
-                pokemon = results;
-
-                return res.view('pokemons', {
-                    pokemons: pokemon
-                });
+        Pokemons.create(values)
+            .exec(function (err, created) {
+                console.log(created.nombre);
             });
+        return res.redirect('http://localhost:1337/perfil');
 
     }
-	
+
 };
 

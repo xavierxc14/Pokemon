@@ -17,22 +17,12 @@
         <% for(var i = 0; i < pokemons.length; i++) { %>
         <tr>
             <td><%= pokemons[i].nombre %></td>
-            <td><%= pokemons[i].usuario %></td>
-            <td><%= usuario.pokemons[i].tipo %></td>
+            <td><%= pokemons[i].numero %></td>
+            <td><%= pokemons[i].tipo %></td>
             <td><img src="images/<%- pokemons[i].url %>"></td>
-            <td><%= pokemons[i].pokemons.length %></td>
+            <td><%= pokemons[i].entrenador %></td>
         </tr>
         <% } %>
-        <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-            <td>mary@example.com</td>
-        </tr>
-        <tr>
-            <td>July</td>
-            <td>Dooley</td>
-            <td>july@example.com</td>
-        </tr>
         </tbody>
     </table>
 </div>

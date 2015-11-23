@@ -12,8 +12,8 @@
 <div class="row">
     <div class="col-md-offset-3">
         <form action="Usuarios/subirFoto" enctype="multipart/form-data" method="post">
-            <input type="file" name="perfil" class="file">
-            <input type="submit" value="Submit" class="btn btn-primary">
+            <input type="file" name="perfil">
+            <input type="submit" value="Submit">
         </form>
     </div>
 </div>
@@ -30,7 +30,7 @@ Pokemons:
         </tr>
         </thead>
         <tbody>
-        <% for(var i = 0; i < usuario.pokemons.length; i++) { %>
+        <% for(var i = 0; i < usuario.pokemons; i++) { %>
         <tr>
             <td><%= usuario.pokemons[i].nombre %></td>
             <td><%= usuario.pokemons[i].numero %></td>

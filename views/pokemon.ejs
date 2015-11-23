@@ -1,12 +1,21 @@
 <div class="col-md-4">
-    <form action="pokemons/crear" method="post">
-        <h2 class="form-signin-heading">Ingrese los datos:</h2>
-        <label for="nombre" class="sr-only">Usuario:</label>
-        <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" required="true"
-               autofocus=true"">
-        <label for="password" class="sr-only">Password:</label>
-        <input id="password" name="password" type="password" class="form-control" placeholder="Password"
-               required="true">
-        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Ingresar">
+    <h2 class="form-signin-heading">Ingrese los datos:</h2>
+
+    <form action="Pokemons/crear" method="post">
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" required autofocus>
+        <label for="numero">Número:</label>
+        <input id="numero" name="numero" type="number" class="form-control" placeholder="Número"
+               required>
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" name="tipo" class="form-control">
+            <option>Agua</option>
+            <option>Fuego</option>
+            <option>Bicho</option>
+            <option>Planta</option>
+            <option>Roca</option>
+            <option>Tierra</option>
+        </select>
+        <input type="submit" class="btn btn-primary" value="Guardar">
     </form>
 </div>

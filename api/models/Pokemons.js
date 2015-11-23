@@ -18,7 +18,7 @@ module.exports = {
         },
         tipo: {
             type: "string",
-            enum: ['agua', 'fuego', 'bicho', 'planta', 'roca', 'tierra']
+            enum: ['Agua', 'Fuego', 'Bicho', 'Planta', 'Roca', 'Tierra']
         },
         avatarUrl: {
             type: "string",
