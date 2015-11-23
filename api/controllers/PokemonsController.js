@@ -64,6 +64,22 @@ module.exports = {
             });
 
     },
+    perfil: function (req, res) {
+
+        var pokemon;
+
+        Pokemons.find()
+            .exec(function (err, results) {
+                if (err) return res.negotiate();
+
+                pokemon = results;
+
+                return res.view('perfilPokemons', {
+                    pokemons: pokemon
+                });
+            });
+
+    },
     crear: function (req, res) {
         var params = req.allParams();
 
@@ -73,13 +89,13 @@ module.exports = {
             tipo: params.tipo,
             entrenador: req.session.user
         };
-        console.log(values);
 
         Pokemons.create(values)
             .exec(function (err, created) {
                 console.log(created.nombre);
+                //TODO: Agregar carga de imagen, preguntar como
             });
-        return res.redirect('http://localhost:1337/perfil');
+        return res.redirect('http://localhost:1337/perfilPokemon');
 
     }
 

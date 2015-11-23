@@ -11,6 +11,7 @@
             <th>Tipo</th>
             <th>Foto</th>
             <th>Maestro</th>
+            <th>Opciones</th>
         </tr>
         </thead>
         <tbody>
@@ -21,6 +22,11 @@
             <td><%= pokemons[i].tipo %></td>
             <td><img src="images/<%- pokemons[i].url %>"></td>
             <td><%= pokemons[i].entrenador %></td>
+            <td>
+                <button type="button" class="btn btn-default" aria-label="Left Align">
+                    <span class="glyphicon glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </button>
+            </td>
         </tr>
         <% } %>
         </tbody>

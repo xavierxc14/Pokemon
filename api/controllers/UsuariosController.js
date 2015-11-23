@@ -43,7 +43,7 @@ module.exports = {
                 .exec(function (err) {
                     if (err) return res.negotiate(err);
                     req.session.user.url = urlImagen;
-                    return res.redirect('http://localhost:1337/perfil');
+                    return res.redirect('http://localhost:1337/perfilUsuario');
                     return res.redirect('https://pokemon-xavierxc14.c9users.io/usuario');
                 });
         });
@@ -102,7 +102,7 @@ module.exports = {
 
         var user = req.session.user;
 
-        return res.view('perfil', {
+        return res.view('perfilUsuario', {
             usuario: user
         })
     }
