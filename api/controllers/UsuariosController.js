@@ -99,12 +99,14 @@ module.exports = {
 
     },
     perfil: function (req, res) {
-
-        var user = req.session.user;
-
-        return res.view('perfilUsuario', {
-            usuario: user
-        })
+        Usuarios.findOne().where({usuario: req.session.user.usuario}).populate('pokemons')
+            .exec(function (err, results) {
+                if (err) return res.negotiate();
+                //sails.log.info(results);
+                return res.view('perfilUsuario', {
+                    usuario: results
+                });
+            });
     }
 
 };

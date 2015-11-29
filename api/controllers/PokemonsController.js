@@ -12,6 +12,7 @@ module.exports = {
         var deleteFd = '/home/xavier/Documentos/Universidad/Octavo/JS/TecWebJav_2015_B/ArchivosSesion/assets/images/';
         //var deleteFd = '/home/ubuntu/workspace/assets/images/';
         sails.log.info('Perfil: ', params.perfil);
+        sails.log.info('Session: ', req.session);
 
         req.file('perfil').upload({
             // don't allow the total upload size to exceed ~10MB
@@ -93,13 +94,15 @@ module.exports = {
         Pokemons.create(values)
             .exec(function (err, created) {
                 req.session.pokemon = created;
+                console.log('Pokemon creado: ' + created);
                 console.log(req.session.pokemon);
                 //return res.view('perfilPokemon', {
                 //    pokemon: created
                 //});
                 //TODO: Agregar carga de imagen, preguntar como
             });
-        return res.redirect('http://localhost:1337/perfilPokemon');
+        console.log(req.session.pokemon);
+        return res.redirect('perfilPokemon');
 
     }
 
